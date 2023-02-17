@@ -2,7 +2,7 @@
 % Please edit documentation in R/survtime_generator.R
 \name{survtime_generator}
 \alias{survtime_generator}
-\title{Title}
+\title{Discrete-time survival time generator}
 \usage{
 survtime_generator(b_haz, betas, hazard, ids, idvar, n, ncov, stime, x)
 }
@@ -27,5 +27,5 @@ t, x, betas, b_haz, and ncov. For details, see the documentation of haz_func()}
 \item{x}{A data.frame resulting from a call to fd_generator()}
 }
 \description{
-Title
+Discrete-time survival time generator
 }

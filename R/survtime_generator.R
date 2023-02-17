@@ -1,7 +1,5 @@
-# Discrete-time survival time generator
 
-
-#' Title
+#' Discrete-time survival time generator
 #'
 #' @param x A data.frame resulting from a call to fd_generator()
 #' @param hazard A hazard generating function. The default is haz_func(). The function must take arguments:
@@ -32,14 +30,15 @@ survtime_generator <- function(
   # sdat <- survtime_generator( x = fulldat, hazard = haz, betas = beta.mat, ncov = (num_bvar + num_tvar), stime = stime, idvar = "ids", ids = unique(fulldat$ids),
   #                 b_haz = b_haz)
   # Defend against incorrect argument types
-  if(!is.data.frame(x)) stop("'x' must be of class 'data.frame'")
-  if(!is.function(hazard)) stop("'hazard' must be of class 'function'")
-  if(!is.data.frame(betas)) stop("'betas' must be of class 'data.frame'")
-  if(!is.integer(ncov)) stop("'ncov' must be of class 'integer'")
-  if(!is.integer(stime)) stop("'stime' must be of class 'integer'")
-  if(!is.character(idvar)) stop("'idvar' must be of class 'character'")
-  if(!is.integer(ids)) stop("'ids' must be of class 'integer'")
-  if(!is.numeric(b_haz)) stop("'b_haz' must be of class 'numeric'")
+  checkmate::assert_data_frame(x)
+  checkmate::assert_function(hazard)
+  checkmate::assert_data_frame(betas)
+  checkmate::assert_integer(ncov)
+  checkmate::assert_integer(stime)
+  checkmate::assert_character(idvar)
+  checkmate::assert_integer(ids)
+  checkmate::assert_numeric(b_haz)
+
 
   # Defend against incorrect argument dimensions
   if(dim(x) != stime*n) stop("'x' must be of dim [stime*n]x[ncov+6]")
