@@ -10,6 +10,8 @@
 # Define test arguments
 len <- 3 # number of patients
 tim <- 3 # number of follow-up times
+num_bvar <- 3
+num_tvar <- 3
 df <- data.frame(ids = rep(c(1:tim), each = len), # TODO replace with a call to fd_generator().
                  arm = c(rep(0, 6), rep(1, 3)),
                  switch = c(0,0,0,0,1,0,0,0,0),
@@ -28,8 +30,8 @@ tv <- c("M", "v1", "v2") # set valid time_var
 cc <- list( # TODO replace with a call to cc_generator
   baseline = matrix(sample(1:(num_bvar*num_tvar), num_bvar*num_tvar), ncol = num_tvar),
   varying = matrix(sample(1:(num_tvar*(num_tvar+1)), num_tvar*(num_tvar+1)), ncol = num_tvar))
-cc$baseline <- LICORS::normalize(cc$baseline, byrow = FALSE)
-cc$varying <- LICORS::normalize(cc$varying, byrow = FALSE)
+cc$baseline <- scale(cc$baseline, byrow = FALSE)
+cc$varying <- scale(cc$varying, byrow = FALSE)
 cc$varying[1,] <- -cc$varying[1,]
 cc$varying <- cc$varying/100
 cc$varying[2:(num_tvar+1),1] <- cc$varying[2:(num_tvar+1),1]*150

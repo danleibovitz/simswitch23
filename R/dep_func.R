@@ -29,15 +29,15 @@ dep_func <- function(
   tcov_n) {
 
   # defend against incorrect argument types
-  if(class(dat) != "data.frame") stop("'dat' must be a data.frame object")
-  if(class(window) != "integer") stop("'window' must be an integer object")
-  if(class(base_var) != "character") stop("'base_var' must be a character object")
-  if(class(time_var) != "character") stop("'time_var' must be a character object")
-  if(class(covar_coef) != "list") stop("'covar_coef' must be a list object")
+  checkmate::assert_data_frame(dat)
+  checkmate::assert_integer(window)
+  checkmate::assert_character(base_var)
+  checkmate::assert_character(time_var)
+  checkmate::assert_list(covar_coef)
   if(any(! c("baseline", "varying") %in% names(covar_coef))) stop("'covar_coef' must contain both a $baseline element and a $varying element")
-  if(class(m_haz) != "integer" & class(m_haz) != "numeric") stop("'m_haz' must be an integer object or a numeric object")
-  if(class(num_t) != "integer") stop("'num_t' must be an integer object")
-  if(class(tcov_n) != "character") stop("'tcov_n' must be a character object")
+  checkmate::assert_numeric(m_haz)
+  checkmate::assert_integer(num_t)
+  checkmate::assert_character(tcov_n)
 
   # TODO defend against incorrect argument ranges or absent specific values
   if(!all(c("time", "treat", "M", "Mtime", base_var, time_var) %in% names(dat))) {
