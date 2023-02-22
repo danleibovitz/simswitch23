@@ -16,9 +16,13 @@ and all variables in arguments 'base_var' and 'time_var'}
 
 \item{time_var}{A vector of names of time-varying variables}
 
+\item{covar_coef}{TODO}
+
 \item{m_haz}{A vector of hazards of length equal to the range of values in \code{dat$time}}
 
-\item{tcov_n}{}
+\item{num_t}{TODO}
+
+\item{tcov_n}{TODO}
 }
 \value{
 should return a binary variable for M, and continuous for all other tvar
