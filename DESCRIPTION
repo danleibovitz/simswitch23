@@ -8,7 +8,9 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Imports: 
     checkmate,
-    magrittr
+    magrittr,
+    MASS,
+    stats
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
