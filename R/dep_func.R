@@ -9,10 +9,10 @@
 #' @param window An integer, representing the time to return values for
 #' @param base_var A vector of names of baseline variables
 #' @param time_var A vector of names of time-varying variables
-#' @param covar_coef
+#' @param covar_coef TODO
 #' @param m_haz A vector of hazards of length equal to the range of values in \code{dat$time}
-#' @param num_t
-#' @param tcov_n
+#' @param num_t TODO
+#' @param tcov_n TODO
 #'
 #' @return # should return a binary variable for M, and continuous for all other tvar
 #' @export
