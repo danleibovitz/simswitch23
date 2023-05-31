@@ -1,4 +1,4 @@
-#' A hazard generator for a weibull distribution
+#' A hazard generator for a discrete-time weibull distribution
 #'
 #' @param x A vector of positive real numbers at which to evaluate the hazard
 #' @param shape The shape parameter
@@ -13,10 +13,10 @@ weihaz <- function(
   shape,
   scale) {
 
-  # Defend against incorrect argument types
-  if (!is.numeric(shape) & !is.integer(shape)) stop("shape parameter must be numeric")
-  if (!is.numeric(scale) & !is.integer(scale)) stop("scale parameter must be numeric")
-  if (!is.numeric(x) & !is.integer(x)) stop("x parameter must be numeric")
+  # Check argument types
+  checkmate::assert_numeric(shape)
+  checkmate::assert_numeric(scale)
+  checkmate::assert_numeric(x)
 
   # Defend against incorrect argument dimensions
   if (length(shape) != 1) stop("'shape' must be of length 1")
