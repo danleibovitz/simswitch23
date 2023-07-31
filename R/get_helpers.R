@@ -14,9 +14,6 @@ get_empty_estimate_frame <- function(){
     )
 }
 
-get_default_params <- function(){
-
-}
 
 get_surv_params <- function(){
 

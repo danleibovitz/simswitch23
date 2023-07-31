@@ -72,7 +72,7 @@ simswitch <- function(add_tvar = 0,
                       m_allowance = 0.1,
                       m_inflation = 2,
                       m_fidelity = 0.2, # the proportion of stime away from first M that switch can occur
-                      m_hard = TRUE, # represents weather switch can happen only after M, or if we don't care
+                      m_hard = TRUE, # represents whether switch can happen only after M, or if we don't care
                       m_haz,
                       m_mag = 2,
                       m_scale,
@@ -102,7 +102,7 @@ simswitch <- function(add_tvar = 0,
                       t_allowance = 0.1,
                       t_mag = 0.5,
                       treat_beta = -1,
-                      tse_dist = "loglogistic", # alternatives are weibull, lognormal, etc.
+                      tse_dist = c("loglogistic", "weibull", "lognormal"), # alternatives are weibull, lognormal, etc.
                       unfix = as.character(c()),
                       verbose = 2,
                       violate = "None"){
@@ -110,7 +110,6 @@ simswitch <- function(add_tvar = 0,
 
 
   # Set and check default parameters ####
-  params <- get_default_params(...)
   checkparams()
 
   # Set all cox-like functions and associated parameters ####
